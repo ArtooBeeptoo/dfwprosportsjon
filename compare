@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Board Showdown · Jon vs DJ vs PFF · 2026 NFL Draft</title>
+<meta name="description" content="Side-by-side comparison of Jon Anderson's 2026 NFL Draft Top 200 against Daniel Jeremiah and PFF's final boards. Where they agree, where they don't, and Jon's biggest sleepers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0908;
+  --ink-2: #14110f;
+  --ink-3: #1d1916;
+  --ink-4: #2a2521;
+  --paper: #f5efe4;
+  --paper-dim: #c9c1b3;
+  --paper-faint: #7d756a;
+  --rule: #2e2823;
+  --crimson: #d62828;
+  --gold: #e0a92e;
+  --green: #6abf69;
+  --red: #e25858;
+  --p-QB: #f4b400; --p-RB: #a3e635; --p-WR: #38bdf8; --p-TE: #fb923c;
+  --p-OT: #c084fc; --p-IOL: #a78bfa; --p-DT: #f472b6; --p-EDGE: #ef4444;
+  --p-LB: #fbbf24; --p-S: #34d399; --p-CB: #60a5fa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--ink); color: var(--paper);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse at top, rgba(214,40,40,0.06) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 3px);
+  min-height: 100vh;
+}
+.hero { border-bottom: 2px solid var(--rule); padding: 24px 18px 22px; position: relative; overflow: hidden; }
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 800px 300px at 50% 100%, rgba(214,40,40,0.12), transparent);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1000px; margin: 0 auto; position: relative; }
+.kicker {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--crimson);
+  margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+}
+.kicker::before, .kicker::after {
+  content: ''; height: 1px; background: var(--crimson); flex: 0 0 24px;
+}
+.kicker::after { flex: 1; opacity: 0.4; }
+h1 {
+  font-family: 'Anton', sans-serif; font-size: clamp(40px, 11vw, 96px);
+  line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 6px;
+}
+h1 .crm { color: var(--crimson); display: block; }
+h1 .sub { display: block; color: var(--paper-dim); font-size: 0.42em; letter-spacing: 0.04em; margin-top: 12px; }
+.dek { font-style: italic; color: var(--paper-dim); margin-top: 14px; max-width: 640px; line-height: 1.5; }
+.byline {
+  margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--paper-faint); letter-spacing: 0.06em;
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+}
+.byline a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+
+.nav-bar {
+position: sticky; top: 0; z-index: 30;
+background: rgba(10,9,8,0.96);
+backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid var(–rule);
+padding: 10px 16px;
+}
+.nav-inner { max-width: 1000px; margin: 0 auto; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-inner a {
+flex: 0 0 auto; color: var(–paper-dim); text-decoration: none;
+font-family: ‘JetBrains Mono’, monospace; font-size: 10.5px;
+letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 11px;
+border: 1px solid var(–rule); transition: all 0.15s; font-weight: 600;
+}
+.nav-inner a:hover { color: var(–paper); border-color: var(–paper-faint); }
+.back-link {
+font-family: ‘JetBrains Mono’, monospace; font-size: 11px;
+color: var(–gold); text-decoration: none; letter-spacing: 0.08em;
+text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;
+margin-bottom: 16px; border-bottom: 1px dotted var(–gold);
+}
+
+main { max-width: 1000px; margin: 0 auto; padding: 24px 16px 80px; }
+
+section { margin-bottom: 48px; scroll-margin-top: 70px; }
+section h2 {
+font-family: ‘Anton’, sans-serif; font-size: clamp(28px, 6vw, 44px);
+text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.95;
+margin-bottom: 8px;
+}
+section h2 .crm { color: var(–crimson); }
+section .lede {
+font-style: italic; color: var(–paper-dim); margin-bottom: 18px; line-height: 1.5;
+border-left: 2px solid var(–crimson); padding-left: 12px; max-width: 720px;
+}
+section h3 {
+font-family: ‘Anton’, sans-serif; font-size: 22px; text-transform: uppercase;
+letter-spacing: 0.04em; margin: 24px 0 10px; color: var(–gold);
+display: flex; align-items: center; gap: 10px;
+}
+section h3::after { content: ‘’; flex: 1; height: 1px; background: var(–rule); }
+
+p { margin-bottom: 12px; }
+p strong { color: var(–paper); }
+
+table {
+width: 100%; border-collapse: collapse; margin: 12px 0 8px; font-size: 14.5px;
+}
+table th {
+font-family: ‘JetBrains Mono’, monospace; font-size: 10px; letter-spacing: 0.1em;
+text-transform: uppercase; color: var(–paper-faint);
+padding: 8px 8px; text-align: left; border-bottom: 1px solid var(–rule);
+font-weight: 600;
+}
+table td {
+padding: 9px 8px; border-bottom: 1px solid var(–ink-3); vertical-align: top;
+}
+table tr:hover td { background: var(–ink-2); }
+.rkcell { width: 56px; text-align: center; }
+.namecell { line-height: 1.3; }
+.college { font-size: 11px; color: var(–paper-faint); margin-top: 2px;
+font-family: ‘JetBrains Mono’, monospace; letter-spacing: 0.04em; }
+.rk {
+font-family: ‘Anton’, sans-serif; font-size: 22px; line-height: 1;
+display: inline-block; min-width: 28px;
+}
+.rk.gold { color: var(–gold); }
+.rk.warm { color: var(–paper); }
+.rk.cool { color: var(–paper-dim); }
+.rk.dim { color: var(–paper-faint); }
+.nr { color: var(–paper-faint); font-size: 10px; font-family: ‘JetBrains Mono’, monospace; letter-spacing: 0.1em; }
+.delta {
+font-family: ‘JetBrains Mono’, monospace; font-size: 12px; font-weight: 700;
+padding: 3px 8px; letter-spacing: 0.04em; display: inline-block;
+}
+.pill-up { background: rgba(106,191,105,0.15); color: var(–green); border: 1px solid var(–green); }
+.pill-down { background: rgba(226,88,88,0.15); color: var(–red); border: 1px solid var(–red); }
+.pos {
+font-family: ‘JetBrains Mono’, monospace; font-size: 9.5px; font-weight: 700;
+letter-spacing: 0.08em; padding: 2px 6px; margin-left: 8px;
+background: var(–ink-3); color: var(–p-QB); border: 1px solid var(–p-QB);
+text-transform: uppercase; vertical-align: 2px;
+}
+.pos-QB { color: var(–p-QB); border-color: var(–p-QB); }
+.pos-RB { color: var(–p-RB); border-color: var(–p-RB); }
+.pos-WR { color: var(–p-WR); border-color: var(–p-WR); }
+.pos-TE { color: var(–p-TE); border-color: var(–p-TE); }
+.pos-OT { color: var(–p-OT); border-color: var(–p-OT); }
+.pos-IOL { color: var(–p-IOL); border-color: var(–p-IOL); }
+.pos-DT { color: var(–p-DT); border-color: var(–p-DT); }
+.pos-EDGE { color: var(–p-EDGE); border-color: var(–p-EDGE); }
+.pos-LB { color: var(–p-LB); border-color: var(–p-LB); }
+.pos-S { color: var(–p-S); border-color: var(–p-S); }
+.pos-CB { color: var(–p-CB); border-color: var(–p-CB); }
+
+.callout {
+background: var(–ink-2); border: 1px solid var(–rule); border-left: 3px solid var(–gold);
+padding: 14px 16px; margin: 18px 0; font-style: italic; color: var(–paper-dim);
+}
+.callout strong { color: var(–gold); font-style: normal; font-family: ‘JetBrains Mono’, monospace;
+font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+.controls {
+background: var(–ink-2); border: 1px solid var(–rule); padding: 12px;
+margin-bottom: 16px; display: flex; gap: 8px; flex-wrap: wrap;
+}
+.search-input {
+flex: 1; min-width: 200px;
+background: var(–ink); border: 1px solid var(–rule); color: var(–paper);
+padding: 8px 12px; font-family: ‘Newsreader’, serif; font-size: 14px;
+outline: none;
+}
+.search-input::placeholder { color: var(–paper-faint); font-style: italic; }
+.search-input:focus { border-color: var(–crimson); }
+.chip-row { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.chip-row::-webkit-scrollbar { display: none; }
+.chip {
+flex: 0 0 auto; background: transparent; border: 1px solid var(–rule);
+color: var(–paper-dim); padding: 6px 10px;
+font-family: ‘JetBrains Mono’, monospace; font-size: 10px; font-weight: 600;
+letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+}
+.chip:hover { color: var(–paper); }
+.chip.active { background: var(–paper); color: var(–ink); border-color: var(–paper); }
+
+footer {
+padding: 30px 16px; text-align: center; border-top: 1px solid var(–rule);
+font-family: ‘JetBrains Mono’, monospace; font-size: 10px;
+letter-spacing: 0.12em; text-transform: uppercase; color: var(–paper-faint);
+}
+footer a { color: var(–gold); text-decoration: none; }
+
+@media (max-width: 600px) {
+.hero { padding: 20px 14px 18px; }
+table { font-size: 13px; }
+table th, table td { padding: 7px 5px; }
+.rkcell { width: 44px; }
+.rk { font-size: 18px; }
+.college { font-size: 10px; }
+.pos { font-size: 9px; padding: 1px 5px; }
+section h2 { margin-bottom: 6px; }
+section h3 { font-size: 18px; }
+}
+</style>
+
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <a href="index.html" class="back-link">← Back to Top 200 Big Board</a>
+    <div class="kicker">DFW PRO SPORTS · ANALYSIS · 4/23/26</div>
+    <h1>
+      <span>Big Board</span>
+      <span class="crm">Showdown</span>
+      <span class="sub">Jon vs Daniel Jeremiah vs PFF</span>
+    </h1>
+    <p class="dek">Three of the most-watched 2026 NFL Draft boards stacked side-by-side. Where Jon agrees with the establishment, where he's alone on a hill, and the sleepers nobody else has rated.</p>
+    <div class="byline">
+      <span>Comparison built from</span>
+      <a href="https://dfwprosports.wordpress.com/2026/04/22/2026-nfl-draft-top-200/" target="_blank" rel="noopener">Jon's Top 200 (4/22)</a>
+      <span>·</span>
+      <a href="https://www.nfl.com/news/daniel-jeremiah-s-top-150-prospects-in-the-2026-nfl-draft-class" target="_blank" rel="noopener">DJ Top 150 (4/20)</a>
+      <span>·</span>
+      <a href="https://www.pff.com/news/draft-2026-nfl-draft-big-board" target="_blank" rel="noopener">PFF Top 450 (4/2)</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#overview">Overview</a>
+    <a href="#jon-higher">Jon's Reaches</a>
+    <a href="#jon-lower">Jon's Fades</a>
+    <a href="#sleepers">Jon-Only</a>
+    <a href="#full-table">Full Table</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="overview">
+  <h2>The 30,000-foot view</h2>
+  <p class="lede">All three boards agree at the very top -- Mendoza is QB1, Love is the back, Bailey/Bain/Reese headline the EDGE class. The disagreements get loud fast in the 20-100 range.</p>
+
+  <h3>Top 50 Position Composition</h3>
+  <p>Where each evaluator sees the strength of the class. Jon goes heaviest on WRs and EDGE; DJ leans into corners and tackles; PFF is the most EDGE-forward.</p>
+  <table>
+    <thead><tr><th style="width:80px">Position</th><th>Jon</th><th>DJ</th><th>PFF</th></tr></thead>
+    <tbody><tr><td><span class="pos pos-QB">QB</span></td><td>3</td><td>2</td><td>2</td></tr><tr><td><span class="pos pos-RB">RB</span></td><td>1</td><td>2</td><td>1</td></tr><tr><td><span class="pos pos-WR">WR</span></td><td>9</td><td>7</td><td>8</td></tr><tr><td><span class="pos pos-TE">TE</span></td><td>3</td><td>1</td><td>1</td></tr><tr><td><span class="pos pos-OT">OT</span></td><td>5</td><td>7</td><td>7</td></tr><tr><td><span class="pos pos-IOL">IOL</span></td><td>2</td><td>2</td><td>3</td></tr><tr><td><span class="pos pos-EDGE">EDGE</span></td><td>8</td><td>10</td><td>9</td></tr><tr><td><span class="pos pos-DT">DT</span></td><td>4</td><td>4</td><td>5</td></tr><tr><td><span class="pos pos-LB">LB</span></td><td>5</td><td>4</td><td>3</td></tr><tr><td><span class="pos pos-S">S</span></td><td>4</td><td>3</td><td>3</td></tr><tr><td><span class="pos pos-CB">CB</span></td><td>6</td><td>8</td><td>8</td></tr></tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Jon's defining quirks</strong>
+    Jon weights tape and frame over Combine athleticism. He's higher on QBs, IOL/OT depth, and "old-school throwback" archetypes (Drew Allar, Cole Payton, Dani Dennis-Sutton). He's lower on undersized speed-and-twitch types that PFF and DJ love (R Mason Thomas, Tacario Davis, Deion Burks).
+  </div>
+</section>
+
+<section id="jon-higher">
+  <h2>Jon's <span class="crm">reaches</span></h2>
+  <p class="lede">Players Jon ranks dramatically higher than the consensus. If you trust his eye, these are his sleepers. If you don't, this is where his board is most likely to look bad in 6 months.</p>
+
+  <h3>vs Daniel Jeremiah</h3>
+  <table class="disag">
+      <thead><tr><th>Jon</th><th>DJ</th><th>Δ</th><th>Player</th></tr></thead>
+      <tbody><tr>
+        <td class="rkcell"><span class="rk warm">63</span></td>
+        <td class="rkcell"><span class="rk dim">145</span></td>
+        <td><span class="delta pill-up">+82</span></td>
+        <td class="namecell"><strong>Justin Joly</strong><span class="pos pos-TE">TE</span><div class="college">NC State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">24</span></td>
+        <td class="rkcell"><span class="rk dim">94</span></td>
+        <td><span class="delta pill-up">+70</span></td>
+        <td class="namecell"><strong>Drew Allar</strong><span class="pos pos-QB">QB</span><div class="college">Penn State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">57</span></td>
+        <td class="rkcell"><span class="rk dim">122</span></td>
+        <td><span class="delta pill-up">+65</span></td>
+        <td class="namecell"><strong>Cole Payton</strong><span class="pos pos-QB">QB</span><div class="college">North Dakota State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">43</span></td>
+        <td class="rkcell"><span class="rk dim">107</span></td>
+        <td><span class="delta pill-up">+64</span></td>
+        <td class="namecell"><strong>Dani Dennis-Sutton</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Penn State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">83</span></td>
+        <td class="rkcell"><span class="rk dim">138</span></td>
+        <td><span class="delta pill-up">+55</span></td>
+        <td class="namecell"><strong>Chandler Rivers</strong><span class="pos pos-CB">CB</span><div class="college">Duke</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">84</span></td>
+        <td class="rkcell"><span class="rk dim">139</span></td>
+        <td><span class="delta pill-up">+55</span></td>
+        <td class="namecell"><strong>Jadon Canady</strong><span class="pos pos-CB">CB</span><div class="college">Oregon</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">35</span></td>
+        <td class="rkcell"><span class="rk dim">89</span></td>
+        <td><span class="delta pill-up">+54</span></td>
+        <td class="namecell"><strong>Kaleb Proctor</strong><span class="pos pos-DT">DT</span><div class="college">SE Louisiana</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">55</span></td>
+        <td class="rkcell"><span class="rk dim">103</span></td>
+        <td><span class="delta pill-up">+48</span></td>
+        <td class="namecell"><strong>Josiah Trotter</strong><span class="pos pos-LB">LB</span><div class="college"></div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">32</span></td>
+        <td class="rkcell"><span class="rk dim">77</span></td>
+        <td><span class="delta pill-up">+45</span></td>
+        <td class="namecell"><strong>Jaishawn Barham</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Michigan</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">73</span></td>
+        <td class="rkcell"><span class="rk dim">117</span></td>
+        <td><span class="delta pill-up">+44</span></td>
+        <td class="namecell"><strong>Nick Singleton</strong><span class="pos pos-RB">RB</span><div class="college">Penn State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">47</span></td>
+        <td class="rkcell"><span class="rk dim">90</span></td>
+        <td><span class="delta pill-up">+43</span></td>
+        <td class="namecell"><strong>Chris Brazzell</strong><span class="pos pos-WR">WR</span><div class="college">Tennessee</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">53</span></td>
+        <td class="rkcell"><span class="rk dim">91</span></td>
+        <td><span class="delta pill-up">+38</span></td>
+        <td class="namecell"><strong>Zachariah Branch</strong><span class="pos pos-WR">WR</span><div class="college">Georgia</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">78</span></td>
+        <td class="rkcell"><span class="rk dim">114</span></td>
+        <td><span class="delta pill-up">+36</span></td>
+        <td class="namecell"><strong>Romello Height</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Texas Tech</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">89</span></td>
+        <td class="rkcell"><span class="rk dim">125</span></td>
+        <td><span class="delta pill-up">+36</span></td>
+        <td class="namecell"><strong>Eli Raridon</strong><span class="pos pos-TE">TE</span><div class="college">Notre Dame</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">27</span></td>
+        <td class="rkcell"><span class="rk dim">61</span></td>
+        <td><span class="delta pill-up">+34</span></td>
+        <td class="namecell"><strong>Gabe Jacas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Illinois</div></td>
+      </tr></tbody></table>
+
+  <h3>vs PFF</h3>
+  <table class="disag">
+      <thead><tr><th>Jon</th><th>PFF</th><th>Δ</th><th>Player</th></tr></thead>
+      <tbody><tr>
+        <td class="rkcell"><span class="rk warm">52</span></td>
+        <td class="rkcell"><span class="rk dim">147</span></td>
+        <td><span class="delta pill-up">+95</span></td>
+        <td class="namecell"><strong>JC Davis</strong><span class="pos pos-OT">OT</span><div class="college">Illinois</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">35</span></td>
+        <td class="rkcell"><span class="rk dim">111</span></td>
+        <td><span class="delta pill-up">+76</span></td>
+        <td class="namecell"><strong>Kaleb Proctor</strong><span class="pos pos-DT">DT</span><div class="college">SE Louisiana</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">73</span></td>
+        <td class="rkcell"><span class="rk dim">146</span></td>
+        <td><span class="delta pill-up">+73</span></td>
+        <td class="namecell"><strong>Nick Singleton</strong><span class="pos pos-RB">RB</span><div class="college">Penn State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">24</span></td>
+        <td class="rkcell"><span class="rk dim">96</span></td>
+        <td><span class="delta pill-up">+72</span></td>
+        <td class="namecell"><strong>Drew Allar</strong><span class="pos pos-QB">QB</span><div class="college">Penn State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">32</span></td>
+        <td class="rkcell"><span class="rk dim">102</span></td>
+        <td><span class="delta pill-up">+70</span></td>
+        <td class="namecell"><strong>Jaishawn Barham</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Michigan</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">81</span></td>
+        <td class="rkcell"><span class="rk dim">148</span></td>
+        <td><span class="delta pill-up">+67</span></td>
+        <td class="namecell"><strong>Nadame Tucker</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Western Michigan</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">63</span></td>
+        <td class="rkcell"><span class="rk dim">129</span></td>
+        <td><span class="delta pill-up">+66</span></td>
+        <td class="namecell"><strong>Justin Joly</strong><span class="pos pos-TE">TE</span><div class="college">NC State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">86</span></td>
+        <td class="rkcell"><span class="rk dim">149</span></td>
+        <td><span class="delta pill-up">+63</span></td>
+        <td class="namecell"><strong>Austin Barber</strong><span class="pos pos-OT">OT</span><div class="college">Florida</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">59</span></td>
+        <td class="rkcell"><span class="rk dim">117</span></td>
+        <td><span class="delta pill-up">+58</span></td>
+        <td class="namecell"><strong>Bud Clark</strong><span class="pos pos-S">S</span><div class="college">TCU</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">76</span></td>
+        <td class="rkcell"><span class="rk dim">131</span></td>
+        <td><span class="delta pill-up">+55</span></td>
+        <td class="namecell"><strong>Jack Endries</strong><span class="pos pos-TE">TE</span><div class="college">Texas</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">71</span></td>
+        <td class="rkcell"><span class="rk dim">125</span></td>
+        <td><span class="delta pill-up">+54</span></td>
+        <td class="namecell"><strong>Chris McClellan</strong><span class="pos pos-DT">DT</span><div class="college">Missouri</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">34</span></td>
+        <td class="rkcell"><span class="rk dim">86</span></td>
+        <td><span class="delta pill-up">+52</span></td>
+        <td class="namecell"><strong>Anthony Hill</strong><span class="pos pos-LB">LB</span><div class="college">Texas</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">95</span></td>
+        <td class="rkcell"><span class="rk dim">145</span></td>
+        <td><span class="delta pill-up">+50</span></td>
+        <td class="namecell"><strong>Taurean York</strong><span class="pos pos-LB">LB</span><div class="college">Texas A&M</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">82</span></td>
+        <td class="rkcell"><span class="rk dim">128</span></td>
+        <td><span class="delta pill-up">+46</span></td>
+        <td class="namecell"><strong>Jalon Kilgore</strong><span class="pos pos-S">S</span><div class="college">South Carolina</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">54</span></td>
+        <td class="rkcell"><span class="rk dim">99</span></td>
+        <td><span class="delta pill-up">+45</span></td>
+        <td class="namecell"><strong>Jonah Coleman</strong><span class="pos pos-RB">RB</span><div class="college">Washington</div></td>
+      </tr></tbody></table>
+
+  <div class="callout">
+    <strong>The Drew Allar gap is the headliner</strong>
+    Jon has Allar 24th overall (late 1st). DJ has him 94th, PFF has him 96th. Jon sees franchise-QB tools "coming off a down season," the consensus sees a guy who regressed and never separated. Whoever's right makes one of these boards look great by November.
+  </div>
+
+  <div class="callout">
+    <strong>The Cole Payton crush</strong>
+    Jon has the NDSU QB at #57 (late 2nd) -- he's the only major board with Payton this high. DJ has him 122, PFF has him outside the top 240. Combine numbers were elite, but it's an FCS one-year starter. Bold call.
+  </div>
+</section>
+
+<section id="jon-lower">
+  <h2>Jon's <span class="crm">fades</span></h2>
+  <p class="lede">Players Jon ranks dramatically lower than DJ and PFF. This is where his board would underperform the field -- guys he's seeing as athletes-not-football-players that the consensus loves.</p>
+
+  <h3>vs Daniel Jeremiah</h3>
+  <table class="disag">
+      <thead><tr><th>Jon</th><th>DJ</th><th>Δ</th><th>Player</th></tr></thead>
+      <tbody><tr>
+        <td class="rkcell"><span class="rk warm">177</span></td>
+        <td class="rkcell"><span class="rk dim">70</span></td>
+        <td><span class="delta pill-down">−107</span></td>
+        <td class="namecell"><strong>Deion Burks</strong><span class="pos pos-WR">WR</span><div class="college">Oklahoma</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">158</span></td>
+        <td class="rkcell"><span class="rk dim">57</span></td>
+        <td><span class="delta pill-down">−101</span></td>
+        <td class="namecell"><strong>Antonio Williams</strong><span class="pos pos-WR">WR</span><div class="college">Clemson</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">173</span></td>
+        <td class="rkcell"><span class="rk dim">73</span></td>
+        <td><span class="delta pill-down">−100</span></td>
+        <td class="namecell"><strong>Tacario Davis</strong><span class="pos pos-CB">CB</span><div class="college">Washington</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">138</span></td>
+        <td class="rkcell"><span class="rk dim">53</span></td>
+        <td><span class="delta pill-down">−85</span></td>
+        <td class="namecell"><strong>Keionte Scott</strong><span class="pos pos-CB">CB</span><div class="college">Miami</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">124</span></td>
+        <td class="rkcell"><span class="rk dim">44</span></td>
+        <td><span class="delta pill-down">−80</span></td>
+        <td class="namecell"><strong>R Mason Thomas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">OU</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">198</span></td>
+        <td class="rkcell"><span class="rk dim">124</span></td>
+        <td><span class="delta pill-down">−74</span></td>
+        <td class="namecell"><strong>Josh Cameron</strong><span class="pos pos-WR">WR</span><div class="college">Baylor</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">140</span></td>
+        <td class="rkcell"><span class="rk dim">69</span></td>
+        <td><span class="delta pill-down">−71</span></td>
+        <td class="namecell"><strong>Daylen Everette</strong><span class="pos pos-CB">CB</span><div class="college">Georgia</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">130</span></td>
+        <td class="rkcell"><span class="rk dim">62</span></td>
+        <td><span class="delta pill-down">−68</span></td>
+        <td class="namecell"><strong>De’Zhaun Stribling</strong><span class="pos pos-WR">WR</span><div class="college">Ole Miss</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">109</span></td>
+        <td class="rkcell"><span class="rk dim">47</span></td>
+        <td><span class="delta pill-down">−62</span></td>
+        <td class="namecell"><strong>Keylan Rutledge</strong><span class="pos pos-IOL">IOL</span><div class="college">Georgia Tech</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">167</span></td>
+        <td class="rkcell"><span class="rk dim">105</span></td>
+        <td><span class="delta pill-down">−62</span></td>
+        <td class="namecell"><strong>Gracen Halton</strong><span class="pos pos-DT">DT</span><div class="college">Oklahoma</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">144</span></td>
+        <td class="rkcell"><span class="rk dim">83</span></td>
+        <td><span class="delta pill-down">−61</span></td>
+        <td class="namecell"><strong>Sam Roush</strong><span class="pos pos-TE">TE</span><div class="college">Stanford</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">154</span></td>
+        <td class="rkcell"><span class="rk dim">95</span></td>
+        <td><span class="delta pill-down">−59</span></td>
+        <td class="namecell"><strong>Jalen Farmer</strong><span class="pos pos-IOL">IOL</span><div class="college">Kentucky</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">168</span></td>
+        <td class="rkcell"><span class="rk dim">109</span></td>
+        <td><span class="delta pill-down">−59</span></td>
+        <td class="namecell"><strong>Domonique Orange</strong><span class="pos pos-DT">DT</span><div class="college">Iowa State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">92</span></td>
+        <td class="rkcell"><span class="rk dim">35</span></td>
+        <td><span class="delta pill-down">−57</span></td>
+        <td class="namecell"><strong>Chris Johnson</strong><span class="pos pos-CB">CB</span><div class="college">San Diego State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">132</span></td>
+        <td class="rkcell"><span class="rk dim">75</span></td>
+        <td><span class="delta pill-down">−57</span></td>
+        <td class="namecell"><strong>Logan Jones</strong><span class="pos pos-IOL">IOL</span><div class="college">Iowa</div></td>
+      </tr></tbody></table>
+
+  <h3>vs PFF</h3>
+  <table class="disag">
+      <thead><tr><th>Jon</th><th>PFF</th><th>Δ</th><th>Player</th></tr></thead>
+      <tbody><tr>
+        <td class="rkcell"><span class="rk warm">177</span></td>
+        <td class="rkcell"><span class="rk dim">78</span></td>
+        <td><span class="delta pill-down">−99</span></td>
+        <td class="namecell"><strong>Deion Burks</strong><span class="pos pos-WR">WR</span><div class="college">Oklahoma</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">157</span></td>
+        <td class="rkcell"><span class="rk dim">60</span></td>
+        <td><span class="delta pill-down">−97</span></td>
+        <td class="namecell"><strong>Skyler Bell</strong><span class="pos pos-WR">WR</span><div class="college">UCONN</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">167</span></td>
+        <td class="rkcell"><span class="rk dim">70</span></td>
+        <td><span class="delta pill-down">−97</span></td>
+        <td class="namecell"><strong>Gracen Halton</strong><span class="pos pos-DT">DT</span><div class="college">Oklahoma</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">168</span></td>
+        <td class="rkcell"><span class="rk dim">72</span></td>
+        <td><span class="delta pill-down">−96</span></td>
+        <td class="namecell"><strong>Domonique Orange</strong><span class="pos pos-DT">DT</span><div class="college">Iowa State</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">158</span></td>
+        <td class="rkcell"><span class="rk dim">69</span></td>
+        <td><span class="delta pill-down">−89</span></td>
+        <td class="namecell"><strong>Antonio Williams</strong><span class="pos pos-WR">WR</span><div class="college">Clemson</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">169</span></td>
+        <td class="rkcell"><span class="rk dim">80</span></td>
+        <td><span class="delta pill-down">−89</span></td>
+        <td class="namecell"><strong>Connor Lew</strong><span class="pos pos-IOL">IOL</span><div class="college">Auburn</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">138</span></td>
+        <td class="rkcell"><span class="rk dim">55</span></td>
+        <td><span class="delta pill-down">−83</span></td>
+        <td class="namecell"><strong>Keionte Scott</strong><span class="pos pos-CB">CB</span><div class="college">Miami</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">124</span></td>
+        <td class="rkcell"><span class="rk dim">47</span></td>
+        <td><span class="delta pill-down">−77</span></td>
+        <td class="namecell"><strong>R Mason Thomas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">OU</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">185</span></td>
+        <td class="rkcell"><span class="rk dim">109</span></td>
+        <td><span class="delta pill-down">−76</span></td>
+        <td class="namecell"><strong>Anthony Lucas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">USC</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">196</span></td>
+        <td class="rkcell"><span class="rk dim">120</span></td>
+        <td><span class="delta pill-down">−76</span></td>
+        <td class="namecell"><strong>Mikael Kamara</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Indiana</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">163</span></td>
+        <td class="rkcell"><span class="rk dim">91</span></td>
+        <td><span class="delta pill-down">−72</span></td>
+        <td class="namecell"><strong>LT Overton</strong><span class="pos pos-DT">DT</span><div class="college">Alabama</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">148</span></td>
+        <td class="rkcell"><span class="rk dim">82</span></td>
+        <td><span class="delta pill-down">−66</span></td>
+        <td class="namecell"><strong>Kamari Ramsey</strong><span class="pos pos-S">S</span><div class="college">USC</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">154</span></td>
+        <td class="rkcell"><span class="rk dim">88</span></td>
+        <td><span class="delta pill-down">−66</span></td>
+        <td class="namecell"><strong>Jalen Farmer</strong><span class="pos pos-IOL">IOL</span><div class="college">Kentucky</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">145</span></td>
+        <td class="rkcell"><span class="rk dim">85</span></td>
+        <td><span class="delta pill-down">−60</span></td>
+        <td class="namecell"><strong>Devin Moore</strong><span class="pos pos-CB">CB</span><div class="college">Florida</div></td>
+      </tr><tr>
+        <td class="rkcell"><span class="rk warm">186</span></td>
+        <td class="rkcell"><span class="rk dim">127</span></td>
+        <td><span class="delta pill-down">−59</span></td>
+        <td class="namecell"><strong>Seth McGowan</strong><span class="pos pos-RB">RB</span><div class="college">Kentucky</div></td>
+      </tr></tbody></table>
+
+  <div class="callout">
+    <strong>The pattern: Jon hates "size/speed but soft" types</strong>
+    Look at the names showing up on both lists -- Deion Burks (WR), R Mason Thomas (EDGE), Keionte Scott (CB), Antonio Williams (WR), Gracen Halton (DT). All undersized or one-year wonders with great athletic testing. PFF and DJ are buying the traits; Jon is fading the production.
+  </div>
+
+  <div class="callout">
+    <strong>The Keylan Rutledge split</strong>
+    DJ has him 47 (late 2nd), PFF has him 74. Jon has him 109 (4th round). This is one of the cleanest splits in the class -- DJ's report is glowing, Jon called him a "developmental player" with starter traits.
+  </div>
+</section>
+
+<section id="sleepers">
+  <h2>Jon's <span class="crm">private board</span></h2>
+  <p class="lede">Players ranked in Jon's top 150 that are NOT in either DJ's top 150 OR PFF's top 150. These are the guys Jon's boarding alone -- find out next week if he saw something nobody else did.</p>
+  <table class="disag">
+  <thead><tr><th>Jon</th><th>Player</th></tr></thead>
+  <tbody><tr>
+      <td class="rkcell"><span class="rk warm">61</span></td>
+      <td class="namecell"><strong>Carver Willis</strong><span class="pos pos-IOL">IOL</span><div class="college">Washington</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">91</span></td>
+      <td class="namecell"><strong>Jaeden Roberts</strong><span class="pos pos-IOL">IOL</span><div class="college">Alabama</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">99</span></td>
+      <td class="namecell"><strong>Aamil Wagner</strong><span class="pos pos-OT">OT</span><div class="college">Notre Dame</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">107</span></td>
+      <td class="namecell"><strong>Devon Marshall</strong><span class="pos pos-CB">CB</span><div class="college">NC State</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">112</span></td>
+      <td class="namecell"><strong>Lewis Bond</strong><span class="pos pos-WR">WR</span><div class="college">Boston College</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">113</span></td>
+      <td class="namecell"><strong>Eli Heidenreich</strong><span class="pos pos-RB">RB</span><div class="college">Navy</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">114</span></td>
+      <td class="namecell"><strong>Michael Taaffee</strong><span class="pos pos-S">S</span><div class="college">Texas</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">116</span></td>
+      <td class="namecell"><strong>Demond Claiborne</strong><span class="pos pos-RB">RB</span><div class="college">Wake Forest</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">119</span></td>
+      <td class="namecell"><strong>Drew Shelton</strong><span class="pos pos-OT">OT</span><div class="college">Penn State</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">122</span></td>
+      <td class="namecell"><strong>Ephesians Prysock</strong><span class="pos pos-CB">CB</span><div class="college">Washington</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">127</span></td>
+      <td class="namecell"><strong>Red Murdock</strong><span class="pos pos-LB">LB</span><div class="college">Buffalo</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">131</span></td>
+      <td class="namecell"><strong>John Michael Gyllenborg</strong><span class="pos pos-TE">TE</span><div class="college">Wyoming</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">135</span></td>
+      <td class="namecell"><strong>Kaytron Allen</strong><span class="pos pos-RB">RB</span><div class="college">Penn State</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">136</span></td>
+      <td class="namecell"><strong>Terion Stewart</strong><span class="pos pos-RB">RB</span><div class="college">Virginia Tech</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">139</span></td>
+      <td class="namecell"><strong>Isaiah World</strong><span class="pos pos-OT">OT</span><div class="college">Oregon</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">142</span></td>
+      <td class="namecell"><strong>Haynes King</strong><span class="pos pos-QB">QB</span><div class="college">Georgia Tech</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">143</span></td>
+      <td class="namecell"><strong>Kaelon Black</strong><span class="pos pos-RB">RB</span><div class="college">Indiana</div></td>
+    </tr><tr>
+      <td class="rkcell"><span class="rk warm">146</span></td>
+      <td class="namecell"><strong>Eric Rivers</strong><span class="pos pos-WR">WR</span><div class="college">Georgia Tech</div></td>
+    </tr></tbody></table>
+
+  <div class="callout">
+    <strong>The Eli Heidenreich call is the most interesting</strong>
+    Jon has the Navy RB/WR at #113 (late 3rd) and called him "the next Puka Nacua" in his profile. PFF has him as a fullback at #196. DJ doesn't have him in 150. Service academy kid, historic underlying metrics, white guy from Navy archetype = brutal historical hit rate. But if the NFL bites and he gets Day 2 capital, Jon's report will look prescient.
+  </div>
+</section>
+
+<section id="full-table">
+  <h2>Full <span class="crm">side-by-side</span></h2>
+  <p class="lede">All 204 of Jon's ranked players with their corresponding DJ and PFF placements. "N/R" = unranked on that board's top 150.</p>
+
+  <div class="controls">
+    <input type="search" class="search-input" id="search" placeholder="Search by name…" autocomplete="off">
+    <div class="chip-row" id="chips">
+      <button class="chip active" data-pos="ALL">All</button>
+      <button class="chip" data-pos="QB">QB</button>
+      <button class="chip" data-pos="RB">RB</button>
+      <button class="chip" data-pos="WR">WR</button>
+      <button class="chip" data-pos="TE">TE</button>
+      <button class="chip" data-pos="OT">OT</button>
+      <button class="chip" data-pos="IOL">IOL</button>
+      <button class="chip" data-pos="EDGE">EDGE</button>
+      <button class="chip" data-pos="DT">DT</button>
+      <button class="chip" data-pos="LB">LB</button>
+      <button class="chip" data-pos="S">S</button>
+      <button class="chip" data-pos="CB">CB</button>
+    </div>
+  </div>
+
+  <table id="full-table-el">
+    <thead>
+      <tr>
+        <th>Jon</th>
+        <th>DJ</th>
+        <th>PFF</th>
+        <th>Player</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr data-pos="QB" data-name="fernando mendoza">
+      <td class="rkcell"><span class="rk gold">1</span></td>
+      <td class="rkcell"><span class="rk gold">1</span></td>
+      <td class="rkcell"><span class="rk gold">1</span></td>
+      <td class="namecell"><strong>Fernando Mendoza</strong><span class="pos pos-QB">QB</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="LB" data-name="sonny styles">
+      <td class="rkcell"><span class="rk gold">2</span></td>
+      <td class="rkcell"><span class="rk gold">3</span></td>
+      <td class="rkcell"><span class="rk gold">4</span></td>
+      <td class="namecell"><strong>Sonny Styles</strong><span class="pos pos-LB">LB</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="RB" data-name="jeremiyah love">
+      <td class="rkcell"><span class="rk gold">3</span></td>
+      <td class="rkcell"><span class="rk gold">2</span></td>
+      <td class="rkcell"><span class="rk gold">3</span></td>
+      <td class="namecell"><strong>Jeremiyah Love</strong><span class="pos pos-RB">RB</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="WR" data-name="jordyn tyson">
+      <td class="rkcell"><span class="rk gold">4</span></td>
+      <td class="rkcell"><span class="rk warm">18</span></td>
+      <td class="rkcell"><span class="rk warm">19</span></td>
+      <td class="namecell"><strong>Jordyn Tyson</strong><span class="pos pos-WR">WR</span><div class="college">Arizona State</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="david bailey">
+      <td class="rkcell"><span class="rk gold">5</span></td>
+      <td class="rkcell"><span class="rk gold">4</span></td>
+      <td class="rkcell"><span class="rk gold">6</span></td>
+      <td class="namecell"><strong>David Bailey</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="CB" data-name="mansoor delane">
+      <td class="rkcell"><span class="rk gold">6</span></td>
+      <td class="rkcell"><span class="rk gold">9</span></td>
+      <td class="rkcell"><span class="rk gold">9</span></td>
+      <td class="namecell"><strong>Mansoor Delane</strong><span class="pos pos-CB">CB</span><div class="college">LSU</div></td>
+    </tr>
+<tr data-pos="OT" data-name="spencer fano">
+      <td class="rkcell"><span class="rk gold">7</span></td>
+      <td class="rkcell"><span class="rk warm">13</span></td>
+      <td class="rkcell"><span class="rk warm">12</span></td>
+      <td class="namecell"><strong>Spencer Fano</strong><span class="pos pos-OT">OT</span><div class="college">Utah</div></td>
+    </tr>
+<tr data-pos="OT" data-name="francis mauigoa">
+      <td class="rkcell"><span class="rk gold">8</span></td>
+      <td class="rkcell"><span class="rk gold">10</span></td>
+      <td class="rkcell"><span class="rk gold">7</span></td>
+      <td class="namecell"><strong>Francis Mauigoa</strong><span class="pos pos-OT">OT</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="CB" data-name="jermod mccoy">
+      <td class="rkcell"><span class="rk gold">9</span></td>
+      <td class="rkcell"><span class="rk warm">19</span></td>
+      <td class="rkcell"><span class="rk warm">17</span></td>
+      <td class="namecell"><strong>Jermod McCoy</strong><span class="pos pos-CB">CB</span><div class="college">Tennessee</div></td>
+    </tr>
+<tr data-pos="WR" data-name="makai lemon">
+      <td class="rkcell"><span class="rk gold">10</span></td>
+      <td class="rkcell"><span class="rk warm">12</span></td>
+      <td class="rkcell"><span class="rk warm">15</span></td>
+      <td class="namecell"><strong>Makai Lemon</strong><span class="pos pos-WR">WR</span><div class="college">USC</div></td>
+    </tr>
+<tr data-pos="WR" data-name="carnell tate">
+      <td class="rkcell"><span class="rk warm">11</span></td>
+      <td class="rkcell"><span class="rk gold">6</span></td>
+      <td class="rkcell"><span class="rk gold">10</span></td>
+      <td class="namecell"><strong>Carnell Tate</strong><span class="pos pos-WR">WR</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="WR" data-name="kc concepcion">
+      <td class="rkcell"><span class="rk warm">12</span></td>
+      <td class="rkcell"><span class="rk warm">25</span></td>
+      <td class="rkcell"><span class="rk cool">35</span></td>
+      <td class="namecell"><strong>KC Concepcion</strong><span class="pos pos-WR">WR</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="S" data-name="caleb downs">
+      <td class="rkcell"><span class="rk warm">13</span></td>
+      <td class="rkcell"><span class="rk gold">8</span></td>
+      <td class="rkcell"><span class="rk gold">8</span></td>
+      <td class="namecell"><strong>Caleb Downs</strong><span class="pos pos-S">S</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="OT" data-name="monroe freeling">
+      <td class="rkcell"><span class="rk warm">14</span></td>
+      <td class="rkcell"><span class="rk warm">22</span></td>
+      <td class="rkcell"><span class="rk warm">13</span></td>
+      <td class="namecell"><strong>Monroe Freeling</strong><span class="pos pos-OT">OT</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="S" data-name="dillon thieneman">
+      <td class="rkcell"><span class="rk warm">15</span></td>
+      <td class="rkcell"><span class="rk warm">16</span></td>
+      <td class="rkcell"><span class="rk warm">11</span></td>
+      <td class="namecell"><strong>Dillon Thieneman</strong><span class="pos pos-S">S</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="LB" data-name="jacob rodriguez">
+      <td class="rkcell"><span class="rk warm">16</span></td>
+      <td class="rkcell"><span class="rk cool">42</span></td>
+      <td class="rkcell"><span class="rk cool">45</span></td>
+      <td class="namecell"><strong>Jacob Rodriguez</strong><span class="pos pos-LB">LB</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="OT" data-name="max iheanachor">
+      <td class="rkcell"><span class="rk warm">17</span></td>
+      <td class="rkcell"><span class="rk warm">31</span></td>
+      <td class="rkcell"><span class="rk warm">30</span></td>
+      <td class="namecell"><strong>Max Iheanachor</strong><span class="pos pos-OT">OT</span><div class="college">Arizona State</div></td>
+    </tr>
+<tr data-pos="OT" data-name="blake miller">
+      <td class="rkcell"><span class="rk warm">18</span></td>
+      <td class="rkcell"><span class="rk warm">20</span></td>
+      <td class="rkcell"><span class="rk warm">25</span></td>
+      <td class="namecell"><strong>Blake Miller</strong><span class="pos pos-OT">OT</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="arvell reese">
+      <td class="rkcell"><span class="rk warm">19</span></td>
+      <td class="rkcell"><span class="rk gold">5</span></td>
+      <td class="rkcell"><span class="rk gold">2</span></td>
+      <td class="namecell"><strong>Arvell Reese</strong><span class="pos pos-EDGE">EDGE</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="zion young">
+      <td class="rkcell"><span class="rk warm">20</span></td>
+      <td class="rkcell"><span class="rk cool">45</span></td>
+      <td class="rkcell"><span class="rk cool">40</span></td>
+      <td class="namecell"><strong>Zion Young</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Missouri</div></td>
+    </tr>
+<tr data-pos="WR" data-name="denzel boston">
+      <td class="rkcell"><span class="rk warm">21</span></td>
+      <td class="rkcell"><span class="rk warm">23</span></td>
+      <td class="rkcell"><span class="rk warm">31</span></td>
+      <td class="namecell"><strong>Denzel Boston</strong><span class="pos pos-WR">WR</span><div class="college">Washington</div></td>
+    </tr>
+<tr data-pos="CB" data-name="d’angelo ponds">
+      <td class="rkcell"><span class="rk warm">22</span></td>
+      <td class="rkcell"><span class="rk cool">50</span></td>
+      <td class="rkcell"><span class="rk cool">43</span></td>
+      <td class="namecell"><strong>D’Angelo Ponds</strong><span class="pos pos-CB">CB</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="TE" data-name="kenyon sadiq">
+      <td class="rkcell"><span class="rk warm">23</span></td>
+      <td class="rkcell"><span class="rk warm">14</span></td>
+      <td class="rkcell"><span class="rk warm">14</span></td>
+      <td class="namecell"><strong>Kenyon Sadiq</strong><span class="pos pos-TE">TE</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="QB" data-name="drew allar">
+      <td class="rkcell"><span class="rk warm">24</span></td>
+      <td class="rkcell"><span class="rk cool">94</span></td>
+      <td class="rkcell"><span class="rk cool">96</span></td>
+      <td class="namecell"><strong>Drew Allar</strong><span class="pos pos-QB">QB</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="DT" data-name="lee hunter">
+      <td class="rkcell"><span class="rk warm">25</span></td>
+      <td class="rkcell"><span class="rk cool">41</span></td>
+      <td class="rkcell"><span class="rk cool">39</span></td>
+      <td class="namecell"><strong>Lee Hunter</strong><span class="pos pos-DT">DT</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="emmanuel pregnon">
+      <td class="rkcell"><span class="rk warm">26</span></td>
+      <td class="rkcell"><span class="rk cool">56</span></td>
+      <td class="rkcell"><span class="rk cool">36</span></td>
+      <td class="namecell"><strong>Emmanuel Pregnon</strong><span class="pos pos-IOL">IOL</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="gabe jacas">
+      <td class="rkcell"><span class="rk warm">27</span></td>
+      <td class="rkcell"><span class="rk cool">61</span></td>
+      <td class="rkcell"><span class="rk cool">51</span></td>
+      <td class="namecell"><strong>Gabe Jacas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Illinois</div></td>
+    </tr>
+<tr data-pos="CB" data-name="treydan stukes">
+      <td class="rkcell"><span class="rk warm">28</span></td>
+      <td class="rkcell"><span class="rk cool">48</span></td>
+      <td class="rkcell"><span class="rk cool">61</span></td>
+      <td class="namecell"><strong>Treydan Stukes</strong><span class="pos pos-CB">CB</span><div class="college">Arizona</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="cashius howell">
+      <td class="rkcell"><span class="rk warm">29</span></td>
+      <td class="rkcell"><span class="rk warm">28</span></td>
+      <td class="rkcell"><span class="rk warm">26</span></td>
+      <td class="namecell"><strong>Cashius Howell</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="olaivavega ioane">
+      <td class="rkcell"><span class="rk warm">30</span></td>
+      <td class="rkcell"><span class="rk warm">11</span></td>
+      <td class="rkcell"><span class="rk warm">16</span></td>
+      <td class="namecell"><strong>Olaivavega Ioane</strong><span class="pos pos-IOL">IOL</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="DT" data-name="kayden mcdonald">
+      <td class="rkcell"><span class="rk warm">31</span></td>
+      <td class="rkcell"><span class="rk cool">33</span></td>
+      <td class="rkcell"><span class="rk warm">28</span></td>
+      <td class="namecell"><strong>Kayden McDonald</strong><span class="pos pos-DT">DT</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="jaishawn barham">
+      <td class="rkcell"><span class="rk warm">32</span></td>
+      <td class="rkcell"><span class="rk cool">77</span></td>
+      <td class="rkcell"><span class="rk dim">102</span></td>
+      <td class="namecell"><strong>Jaishawn Barham</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Michigan</div></td>
+    </tr>
+<tr data-pos="DT" data-name="caleb banks">
+      <td class="rkcell"><span class="rk cool">33</span></td>
+      <td class="rkcell"><span class="rk cool">51</span></td>
+      <td class="rkcell"><span class="rk warm">32</span></td>
+      <td class="namecell"><strong>Caleb Banks</strong><span class="pos pos-DT">DT</span><div class="college">Florida</div></td>
+    </tr>
+<tr data-pos="LB" data-name="anthony hill">
+      <td class="rkcell"><span class="rk cool">34</span></td>
+      <td class="rkcell"><span class="rk cool">37</span></td>
+      <td class="rkcell"><span class="rk cool">86</span></td>
+      <td class="namecell"><strong>Anthony Hill</strong><span class="pos pos-LB">LB</span><div class="college">Texas</div></td>
+    </tr>
+<tr data-pos="DT" data-name="kaleb proctor">
+      <td class="rkcell"><span class="rk cool">35</span></td>
+      <td class="rkcell"><span class="rk cool">89</span></td>
+      <td class="rkcell"><span class="rk dim">111</span></td>
+      <td class="namecell"><strong>Kaleb Proctor</strong><span class="pos pos-DT">DT</span><div class="college">SE Louisiana</div></td>
+    </tr>
+<tr data-pos="WR" data-name="chris bell">
+      <td class="rkcell"><span class="rk cool">36</span></td>
+      <td class="rkcell"><span class="rk cool">68</span></td>
+      <td class="rkcell"><span class="rk cool">44</span></td>
+      <td class="namecell"><strong>Chris Bell</strong><span class="pos pos-WR">WR</span><div class="college">Louisville</div></td>
+    </tr>
+<tr data-pos="TE" data-name="eli stowers">
+      <td class="rkcell"><span class="rk cool">37</span></td>
+      <td class="rkcell"><span class="rk cool">66</span></td>
+      <td class="rkcell"><span class="rk cool">53</span></td>
+      <td class="namecell"><strong>Eli Stowers</strong><span class="pos pos-TE">TE</span><div class="college">Vanderbilt</div></td>
+    </tr>
+<tr data-pos="WR" data-name="omar cooper">
+      <td class="rkcell"><span class="rk cool">38</span></td>
+      <td class="rkcell"><span class="rk warm">17</span></td>
+      <td class="rkcell"><span class="rk warm">24</span></td>
+      <td class="namecell"><strong>Omar Cooper</strong><span class="pos pos-WR">WR</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="CB" data-name="colton hood">
+      <td class="rkcell"><span class="rk cool">39</span></td>
+      <td class="rkcell"><span class="rk warm">21</span></td>
+      <td class="rkcell"><span class="rk cool">34</span></td>
+      <td class="namecell"><strong>Colton Hood</strong><span class="pos pos-CB">CB</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="S" data-name="aj haulcy">
+      <td class="rkcell"><span class="rk cool">40</span></td>
+      <td class="rkcell"><span class="rk cool">64</span></td>
+      <td class="rkcell"><span class="rk cool">52</span></td>
+      <td class="namecell"><strong>AJ Haulcy</strong><span class="pos pos-S">S</span><div class="college">LSU</div></td>
+    </tr>
+<tr data-pos="LB" data-name="cj allen">
+      <td class="rkcell"><span class="rk cool">41</span></td>
+      <td class="rkcell"><span class="rk warm">32</span></td>
+      <td class="rkcell"><span class="rk warm">18</span></td>
+      <td class="namecell"><strong>CJ Allen</strong><span class="pos pos-LB">LB</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="CB" data-name="aveion terrell">
+      <td class="rkcell"><span class="rk cool">42</span></td>
+      <td class="rkcell"><span class="rk cool">38</span></td>
+      <td class="rkcell"><span class="rk warm">23</span></td>
+      <td class="namecell"><strong>Aveion Terrell</strong><span class="pos pos-CB">CB</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="dani dennis-sutton">
+      <td class="rkcell"><span class="rk cool">43</span></td>
+      <td class="rkcell"><span class="rk dim">107</span></td>
+      <td class="rkcell"><span class="rk cool">67</span></td>
+      <td class="namecell"><strong>Dani Dennis-Sutton</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="ahkeem mesidor">
+      <td class="rkcell"><span class="rk cool">44</span></td>
+      <td class="rkcell"><span class="rk warm">26</span></td>
+      <td class="rkcell"><span class="rk warm">20</span></td>
+      <td class="namecell"><strong>Ahkeem Mesidor</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="LB" data-name="kyle louis">
+      <td class="rkcell"><span class="rk cool">45</span></td>
+      <td class="rkcell"><span class="rk cool">55</span></td>
+      <td class="rkcell"><span class="rk cool">81</span></td>
+      <td class="namecell"><strong>Kyle Louis</strong><span class="pos pos-LB">LB</span><div class="college">Pittsburgh</div></td>
+    </tr>
+<tr data-pos="S" data-name="emmanuel mcneil-warren">
+      <td class="rkcell"><span class="rk cool">46</span></td>
+      <td class="rkcell"><span class="rk warm">15</span></td>
+      <td class="rkcell"><span class="rk warm">21</span></td>
+      <td class="namecell"><strong>Emmanuel McNeil-Warren</strong><span class="pos pos-S">S</span><div class="college">Toledo</div></td>
+    </tr>
+<tr data-pos="WR" data-name="chris brazzell">
+      <td class="rkcell"><span class="rk cool">47</span></td>
+      <td class="rkcell"><span class="rk cool">90</span></td>
+      <td class="rkcell"><span class="rk cool">58</span></td>
+      <td class="namecell"><strong>Chris Brazzell</strong><span class="pos pos-WR">WR</span><div class="college">Tennessee</div></td>
+    </tr>
+<tr data-pos="WR" data-name="germie bernard">
+      <td class="rkcell"><span class="rk cool">48</span></td>
+      <td class="rkcell"><span class="rk cool">49</span></td>
+      <td class="rkcell"><span class="rk cool">49</span></td>
+      <td class="namecell"><strong>Germie Bernard</strong><span class="pos pos-WR">WR</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="TE" data-name="max klare">
+      <td class="rkcell"><span class="rk cool">49</span></td>
+      <td class="rkcell"><span class="rk cool">81</span></td>
+      <td class="rkcell"><span class="rk cool">76</span></td>
+      <td class="namecell"><strong>Max Klare</strong><span class="pos pos-TE">TE</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="QB" data-name="ty simpson">
+      <td class="rkcell"><span class="rk cool">50</span></td>
+      <td class="rkcell"><span class="rk cool">36</span></td>
+      <td class="rkcell"><span class="rk cool">42</span></td>
+      <td class="namecell"><strong>Ty Simpson</strong><span class="pos pos-QB">QB</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="rueben bain">
+      <td class="rkcell"><span class="rk cool">51</span></td>
+      <td class="rkcell"><span class="rk gold">7</span></td>
+      <td class="rkcell"><span class="rk gold">5</span></td>
+      <td class="namecell"><strong>Rueben Bain</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="OT" data-name="jc davis">
+      <td class="rkcell"><span class="rk cool">52</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">147</span></td>
+      <td class="namecell"><strong>JC Davis</strong><span class="pos pos-OT">OT</span><div class="college">Illinois</div></td>
+    </tr>
+<tr data-pos="WR" data-name="zachariah branch">
+      <td class="rkcell"><span class="rk cool">53</span></td>
+      <td class="rkcell"><span class="rk cool">91</span></td>
+      <td class="rkcell"><span class="rk cool">75</span></td>
+      <td class="namecell"><strong>Zachariah Branch</strong><span class="pos pos-WR">WR</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="RB" data-name="jonah coleman">
+      <td class="rkcell"><span class="rk cool">54</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk cool">99</span></td>
+      <td class="namecell"><strong>Jonah Coleman</strong><span class="pos pos-RB">RB</span><div class="college">Washington</div></td>
+    </tr>
+<tr data-pos="LB" data-name="josiah trotter">
+      <td class="rkcell"><span class="rk cool">55</span></td>
+      <td class="rkcell"><span class="rk dim">103</span></td>
+      <td class="rkcell"><span class="rk cool">66</span></td>
+      <td class="namecell"><strong>Josiah Trotter</strong><span class="pos pos-LB">LB</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="DT" data-name="darrell jackson jr.">
+      <td class="rkcell"><span class="rk cool">56</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk cool">79</span></td>
+      <td class="namecell"><strong>Darrell Jackson Jr.</strong><span class="pos pos-DT">DT</span><div class="college">FSU</div></td>
+    </tr>
+<tr data-pos="QB" data-name="cole payton">
+      <td class="rkcell"><span class="rk cool">57</span></td>
+      <td class="rkcell"><span class="rk dim">122</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Cole Payton</strong><span class="pos pos-QB">QB</span><div class="college">North Dakota State</div></td>
+    </tr>
+<tr data-pos="OT" data-name="caleb lomu">
+      <td class="rkcell"><span class="rk cool">58</span></td>
+      <td class="rkcell"><span class="rk warm">30</span></td>
+      <td class="rkcell"><span class="rk cool">38</span></td>
+      <td class="namecell"><strong>Caleb Lomu</strong><span class="pos pos-OT">OT</span><div class="college">Utah</div></td>
+    </tr>
+<tr data-pos="S" data-name="bud clark">
+      <td class="rkcell"><span class="rk cool">59</span></td>
+      <td class="rkcell"><span class="rk cool">58</span></td>
+      <td class="rkcell"><span class="rk dim">117</span></td>
+      <td class="namecell"><strong>Bud Clark</strong><span class="pos pos-S">S</span><div class="college">TCU</div></td>
+    </tr>
+<tr data-pos="WR" data-name="ted hurst">
+      <td class="rkcell"><span class="rk cool">60</span></td>
+      <td class="rkcell"><span class="rk cool">85</span></td>
+      <td class="rkcell"><span class="rk cool">97</span></td>
+      <td class="namecell"><strong>Ted Hurst</strong><span class="pos pos-WR">WR</span><div class="college">Georgia State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="carver willis">
+      <td class="rkcell"><span class="rk cool">61</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Carver Willis</strong><span class="pos pos-IOL">IOL</span><div class="college">Washington</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="malachi lawrence">
+      <td class="rkcell"><span class="rk cool">62</span></td>
+      <td class="rkcell"><span class="rk cool">40</span></td>
+      <td class="rkcell"><span class="rk cool">54</span></td>
+      <td class="namecell"><strong>Malachi Lawrence</strong><span class="pos pos-EDGE">EDGE</span><div class="college">UCF</div></td>
+    </tr>
+<tr data-pos="TE" data-name="justin joly">
+      <td class="rkcell"><span class="rk cool">63</span></td>
+      <td class="rkcell"><span class="rk dim">145</span></td>
+      <td class="rkcell"><span class="rk dim">129</span></td>
+      <td class="namecell"><strong>Justin Joly</strong><span class="pos pos-TE">TE</span><div class="college">NC State</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="keldric faulk">
+      <td class="rkcell"><span class="rk cool">64</span></td>
+      <td class="rkcell"><span class="rk warm">29</span></td>
+      <td class="rkcell"><span class="rk warm">22</span></td>
+      <td class="namecell"><strong>Keldric Faulk</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Auburn</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="tj parker">
+      <td class="rkcell"><span class="rk cool">65</span></td>
+      <td class="rkcell"><span class="rk warm">27</span></td>
+      <td class="rkcell"><span class="rk warm">29</span></td>
+      <td class="namecell"><strong>TJ Parker</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="CB" data-name="keith abney">
+      <td class="rkcell"><span class="rk cool">66</span></td>
+      <td class="rkcell"><span class="rk cool">98</span></td>
+      <td class="rkcell"><span class="rk cool">50</span></td>
+      <td class="namecell"><strong>Keith Abney</strong><span class="pos pos-CB">CB</span><div class="college">Arizona State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="gennings dunker">
+      <td class="rkcell"><span class="rk cool">67</span></td>
+      <td class="rkcell"><span class="rk cool">63</span></td>
+      <td class="rkcell"><span class="rk cool">57</span></td>
+      <td class="namecell"><strong>Gennings Dunker</strong><span class="pos pos-IOL">IOL</span><div class="college">Iowa</div></td>
+    </tr>
+<tr data-pos="WR" data-name="bryce lance">
+      <td class="rkcell"><span class="rk cool">68</span></td>
+      <td class="rkcell"><span class="rk cool">99</span></td>
+      <td class="rkcell"><span class="rk cool">62</span></td>
+      <td class="namecell"><strong>Bryce Lance</strong><span class="pos pos-WR">WR</span><div class="college">North Dakota State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="chase bisontis">
+      <td class="rkcell"><span class="rk cool">69</span></td>
+      <td class="rkcell"><span class="rk cool">52</span></td>
+      <td class="rkcell"><span class="rk cool">48</span></td>
+      <td class="namecell"><strong>Chase Bisontis</strong><span class="pos pos-IOL">IOL</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="RB" data-name="jadarian price">
+      <td class="rkcell"><span class="rk cool">70</span></td>
+      <td class="rkcell"><span class="rk cool">34</span></td>
+      <td class="rkcell"><span class="rk cool">56</span></td>
+      <td class="namecell"><strong>Jadarian Price</strong><span class="pos pos-RB">RB</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="DT" data-name="chris mcclellan">
+      <td class="rkcell"><span class="rk cool">71</span></td>
+      <td class="rkcell"><span class="rk cool">82</span></td>
+      <td class="rkcell"><span class="rk dim">125</span></td>
+      <td class="namecell"><strong>Chris McClellan</strong><span class="pos pos-DT">DT</span><div class="college">Missouri</div></td>
+    </tr>
+<tr data-pos="DT" data-name="christen miller">
+      <td class="rkcell"><span class="rk cool">72</span></td>
+      <td class="rkcell"><span class="rk cool">46</span></td>
+      <td class="rkcell"><span class="rk cool">37</span></td>
+      <td class="namecell"><strong>Christen Miller</strong><span class="pos pos-DT">DT</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="RB" data-name="nick singleton">
+      <td class="rkcell"><span class="rk cool">73</span></td>
+      <td class="rkcell"><span class="rk dim">117</span></td>
+      <td class="rkcell"><span class="rk dim">146</span></td>
+      <td class="namecell"><strong>Nick Singleton</strong><span class="pos pos-RB">RB</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="TE" data-name="oscar delp">
+      <td class="rkcell"><span class="rk cool">74</span></td>
+      <td class="rkcell"><span class="rk cool">71</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Oscar Delp</strong><span class="pos pos-TE">TE</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="LB" data-name="jake golday">
+      <td class="rkcell"><span class="rk cool">75</span></td>
+      <td class="rkcell"><span class="rk cool">54</span></td>
+      <td class="rkcell"><span class="rk cool">59</span></td>
+      <td class="namecell"><strong>Jake Golday</strong><span class="pos pos-LB">LB</span><div class="college">Cincinnati</div></td>
+    </tr>
+<tr data-pos="TE" data-name="jack endries">
+      <td class="rkcell"><span class="rk cool">76</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">131</span></td>
+      <td class="namecell"><strong>Jack Endries</strong><span class="pos pos-TE">TE</span><div class="college">Texas</div></td>
+    </tr>
+<tr data-pos="OT" data-name="kadyn proctor">
+      <td class="rkcell"><span class="rk cool">77</span></td>
+      <td class="rkcell"><span class="rk warm">24</span></td>
+      <td class="rkcell"><span class="rk warm">27</span></td>
+      <td class="namecell"><strong>Kadyn Proctor</strong><span class="pos pos-OT">OT</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="romello height">
+      <td class="rkcell"><span class="rk cool">78</span></td>
+      <td class="rkcell"><span class="rk dim">114</span></td>
+      <td class="rkcell"><span class="rk cool">77</span></td>
+      <td class="namecell"><strong>Romello Height</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="WR" data-name="elijah sarratt">
+      <td class="rkcell"><span class="rk cool">79</span></td>
+      <td class="rkcell"><span class="rk cool">80</span></td>
+      <td class="rkcell"><span class="rk cool">73</span></td>
+      <td class="namecell"><strong>Elijah Sarratt</strong><span class="pos pos-WR">WR</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="LB" data-name="deontae lawson">
+      <td class="rkcell"><span class="rk cool">80</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">110</span></td>
+      <td class="namecell"><strong>Deontae Lawson</strong><span class="pos pos-LB">LB</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="nadame tucker">
+      <td class="rkcell"><span class="rk cool">81</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">148</span></td>
+      <td class="namecell"><strong>Nadame Tucker</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Western Michigan</div></td>
+    </tr>
+<tr data-pos="S" data-name="jalon kilgore">
+      <td class="rkcell"><span class="rk cool">82</span></td>
+      <td class="rkcell"><span class="rk cool">76</span></td>
+      <td class="rkcell"><span class="rk dim">128</span></td>
+      <td class="namecell"><strong>Jalon Kilgore</strong><span class="pos pos-S">S</span><div class="college">South Carolina</div></td>
+    </tr>
+<tr data-pos="CB" data-name="chandler rivers">
+      <td class="rkcell"><span class="rk cool">83</span></td>
+      <td class="rkcell"><span class="rk dim">138</span></td>
+      <td class="rkcell"><span class="rk cool">83</span></td>
+      <td class="namecell"><strong>Chandler Rivers</strong><span class="pos pos-CB">CB</span><div class="college">Duke</div></td>
+    </tr>
+<tr data-pos="CB" data-name="jadon canady">
+      <td class="rkcell"><span class="rk cool">84</span></td>
+      <td class="rkcell"><span class="rk dim">139</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jadon Canady</strong><span class="pos pos-CB">CB</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="OT" data-name="caleb tiernan">
+      <td class="rkcell"><span class="rk cool">85</span></td>
+      <td class="rkcell"><span class="rk cool">59</span></td>
+      <td class="rkcell"><span class="rk cool">64</span></td>
+      <td class="namecell"><strong>Caleb Tiernan</strong><span class="pos pos-OT">OT</span><div class="college">Northwestern</div></td>
+    </tr>
+<tr data-pos="OT" data-name="austin barber">
+      <td class="rkcell"><span class="rk cool">86</span></td>
+      <td class="rkcell"><span class="rk cool">96</span></td>
+      <td class="rkcell"><span class="rk dim">149</span></td>
+      <td class="namecell"><strong>Austin Barber</strong><span class="pos pos-OT">OT</span><div class="college">Florida</div></td>
+    </tr>
+<tr data-pos="QB" data-name="carson beck">
+      <td class="rkcell"><span class="rk cool">87</span></td>
+      <td class="rkcell"><span class="rk cool">74</span></td>
+      <td class="rkcell"><span class="rk dim">113</span></td>
+      <td class="namecell"><strong>Carson Beck</strong><span class="pos pos-QB">QB</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="WR" data-name="brenen thompson">
+      <td class="rkcell"><span class="rk cool">88</span></td>
+      <td class="rkcell"><span class="rk cool">97</span></td>
+      <td class="rkcell"><span class="rk dim">116</span></td>
+      <td class="namecell"><strong>Brenen Thompson</strong><span class="pos pos-WR">WR</span><div class="college">Mississippi State</div></td>
+    </tr>
+<tr data-pos="TE" data-name="eli raridon">
+      <td class="rkcell"><span class="rk cool">89</span></td>
+      <td class="rkcell"><span class="rk dim">125</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Eli Raridon</strong><span class="pos pos-TE">TE</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="DT" data-name="peter woods">
+      <td class="rkcell"><span class="rk cool">90</span></td>
+      <td class="rkcell"><span class="rk cool">39</span></td>
+      <td class="rkcell"><span class="rk cool">33</span></td>
+      <td class="namecell"><strong>Peter Woods</strong><span class="pos pos-DT">DT</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="jaeden roberts">
+      <td class="rkcell"><span class="rk cool">91</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jaeden Roberts</strong><span class="pos pos-IOL">IOL</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="CB" data-name="chris johnson">
+      <td class="rkcell"><span class="rk cool">92</span></td>
+      <td class="rkcell"><span class="rk cool">35</span></td>
+      <td class="rkcell"><span class="rk cool">46</span></td>
+      <td class="namecell"><strong>Chris Johnson</strong><span class="pos pos-CB">CB</span><div class="college">San Diego State</div></td>
+    </tr>
+<tr data-pos="CB" data-name="brandon cisse">
+      <td class="rkcell"><span class="rk cool">93</span></td>
+      <td class="rkcell"><span class="rk cool">43</span></td>
+      <td class="rkcell"><span class="rk cool">41</span></td>
+      <td class="namecell"><strong>Brandon Cisse</strong><span class="pos pos-CB">CB</span><div class="college">South Carolina</div></td>
+    </tr>
+<tr data-pos="DT" data-name="zxavian harris">
+      <td class="rkcell"><span class="rk cool">94</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">119</span></td>
+      <td class="namecell"><strong>Zxavian Harris</strong><span class="pos pos-DT">DT</span><div class="college">Ole Miss</div></td>
+    </tr>
+<tr data-pos="LB" data-name="taurean york">
+      <td class="rkcell"><span class="rk cool">95</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">145</span></td>
+      <td class="namecell"><strong>Taurean York</strong><span class="pos pos-LB">LB</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="joshua josephs">
+      <td class="rkcell"><span class="rk cool">96</span></td>
+      <td class="rkcell"><span class="rk cool">78</span></td>
+      <td class="rkcell"><span class="rk cool">63</span></td>
+      <td class="namecell"><strong>Joshua Josephs</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Tennessee</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="derrick moore">
+      <td class="rkcell"><span class="rk cool">97</span></td>
+      <td class="rkcell"><span class="rk cool">65</span></td>
+      <td class="rkcell"><span class="rk cool">65</span></td>
+      <td class="namecell"><strong>Derrick Moore</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Michigan</div></td>
+    </tr>
+<tr data-pos="S" data-name="genesis smith">
+      <td class="rkcell"><span class="rk cool">98</span></td>
+      <td class="rkcell"><span class="rk cool">88</span></td>
+      <td class="rkcell"><span class="rk cool">98</span></td>
+      <td class="namecell"><strong>Genesis Smith</strong><span class="pos pos-S">S</span><div class="college">Arizona</div></td>
+    </tr>
+<tr data-pos="OT" data-name="aamil wagner">
+      <td class="rkcell"><span class="rk cool">99</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Aamil Wagner</strong><span class="pos pos-OT">OT</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="RB" data-name="mike washington">
+      <td class="rkcell"><span class="rk cool">100</span></td>
+      <td class="rkcell"><span class="rk cool">79</span></td>
+      <td class="rkcell"><span class="rk cool">71</span></td>
+      <td class="namecell"><strong>Mike Washington</strong><span class="pos pos-RB">RB</span><div class="college">Arkansas</div></td>
+    </tr>
+<tr data-pos="OT" data-name="markel bell">
+      <td class="rkcell"><span class="rk dim">101</span></td>
+      <td class="rkcell"><span class="rk cool">92</span></td>
+      <td class="rkcell"><span class="rk dim">101</span></td>
+      <td class="namecell"><strong>Markel Bell</strong><span class="pos pos-OT">OT</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="S" data-name="zakee wheatley">
+      <td class="rkcell"><span class="rk dim">102</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">104</span></td>
+      <td class="namecell"><strong>Zakee Wheatley</strong><span class="pos pos-S">S</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="jaeger burton">
+      <td class="rkcell"><span class="rk dim">103</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">141</span></td>
+      <td class="namecell"><strong>Jaeger Burton</strong><span class="pos pos-IOL">IOL</span><div class="college">Kentucky</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="sam hecht">
+      <td class="rkcell"><span class="rk dim">104</span></td>
+      <td class="rkcell"><span class="rk cool">72</span></td>
+      <td class="rkcell"><span class="rk cool">84</span></td>
+      <td class="namecell"><strong>Sam Hecht</strong><span class="pos pos-IOL">IOL</span><div class="college">Kansas State</div></td>
+    </tr>
+<tr data-pos="QB" data-name="garrett nussmeier">
+      <td class="rkcell"><span class="rk dim">105</span></td>
+      <td class="rkcell"><span class="rk dim">101</span></td>
+      <td class="rkcell"><span class="rk cool">93</span></td>
+      <td class="namecell"><strong>Garrett Nussmeier</strong><span class="pos pos-QB">QB</span><div class="college">LSU</div></td>
+    </tr>
+<tr data-pos="CB" data-name="davison igbinosun">
+      <td class="rkcell"><span class="rk dim">106</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk cool">68</span></td>
+      <td class="namecell"><strong>Davison Igbinosun</strong><span class="pos pos-CB">CB</span><div class="college">Ohio State</div></td>
+    </tr>
+<tr data-pos="CB" data-name="devon marshall">
+      <td class="rkcell"><span class="rk dim">107</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Devon Marshall</strong><span class="pos pos-CB">CB</span><div class="college">NC State</div></td>
+    </tr>
+<tr data-pos="LB" data-name="harold perkins">
+      <td class="rkcell"><span class="rk dim">108</span></td>
+      <td class="rkcell"><span class="rk dim">106</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Harold Perkins</strong><span class="pos pos-LB">LB</span><div class="college">LSU</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="keylan rutledge">
+      <td class="rkcell"><span class="rk dim">109</span></td>
+      <td class="rkcell"><span class="rk cool">47</span></td>
+      <td class="rkcell"><span class="rk cool">74</span></td>
+      <td class="namecell"><strong>Keylan Rutledge</strong><span class="pos pos-IOL">IOL</span><div class="college">Georgia Tech</div></td>
+    </tr>
+<tr data-pos="WR" data-name="malachi fields">
+      <td class="rkcell"><span class="rk dim">110</span></td>
+      <td class="rkcell"><span class="rk cool">60</span></td>
+      <td class="rkcell"><span class="rk cool">100</span></td>
+      <td class="namecell"><strong>Malachi Fields</strong><span class="pos pos-WR">WR</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="QB" data-name="taylen green">
+      <td class="rkcell"><span class="rk dim">111</span></td>
+      <td class="rkcell"><span class="rk dim">141</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Taylen Green</strong><span class="pos pos-QB">QB</span><div class="college">Arkansas</div></td>
+    </tr>
+<tr data-pos="WR" data-name="lewis bond">
+      <td class="rkcell"><span class="rk dim">112</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Lewis Bond</strong><span class="pos pos-WR">WR</span><div class="college">Boston College</div></td>
+    </tr>
+<tr data-pos="RB" data-name="eli heidenreich">
+      <td class="rkcell"><span class="rk dim">113</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Eli Heidenreich</strong><span class="pos pos-RB">RB</span><div class="college">Navy</div></td>
+    </tr>
+<tr data-pos="S" data-name="michael taaffee">
+      <td class="rkcell"><span class="rk dim">114</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Michael Taaffee</strong><span class="pos pos-S">S</span><div class="college">Texas</div></td>
+    </tr>
+<tr data-pos="DT" data-name="landon robinson">
+      <td class="rkcell"><span class="rk dim">115</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">122</span></td>
+      <td class="namecell"><strong>Landon Robinson</strong><span class="pos pos-DT">DT</span><div class="college">Navy</div></td>
+    </tr>
+<tr data-pos="RB" data-name="demond claiborne">
+      <td class="rkcell"><span class="rk dim">116</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Demond Claiborne</strong><span class="pos pos-RB">RB</span><div class="college">Wake Forest</div></td>
+    </tr>
+<tr data-pos="CB" data-name="malik muhammad">
+      <td class="rkcell"><span class="rk dim">117</span></td>
+      <td class="rkcell"><span class="rk dim">104</span></td>
+      <td class="rkcell"><span class="rk dim">105</span></td>
+      <td class="namecell"><strong>Malik Muhammad</strong><span class="pos pos-CB">CB</span><div class="college">Texas</div></td>
+    </tr>
+<tr data-pos="DT" data-name="tyler onyedim">
+      <td class="rkcell"><span class="rk dim">118</span></td>
+      <td class="rkcell"><span class="rk cool">87</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Tyler Onyedim</strong><span class="pos pos-DT">DT</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="OT" data-name="drew shelton">
+      <td class="rkcell"><span class="rk dim">119</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Drew Shelton</strong><span class="pos pos-OT">OT</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="trey zuhn">
+      <td class="rkcell"><span class="rk dim">120</span></td>
+      <td class="rkcell"><span class="rk dim">133</span></td>
+      <td class="rkcell"><span class="rk dim">143</span></td>
+      <td class="namecell"><strong>Trey Zuhn</strong><span class="pos pos-IOL">IOL</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="keyron crawford">
+      <td class="rkcell"><span class="rk dim">121</span></td>
+      <td class="rkcell"><span class="rk cool">67</span></td>
+      <td class="rkcell"><span class="rk cool">92</span></td>
+      <td class="namecell"><strong>Keyron Crawford</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Auburn</div></td>
+    </tr>
+<tr data-pos="CB" data-name="ephesians prysock">
+      <td class="rkcell"><span class="rk dim">122</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Ephesians Prysock</strong><span class="pos pos-CB">CB</span><div class="college">Washington</div></td>
+    </tr>
+<tr data-pos="WR" data-name="eric mcalister">
+      <td class="rkcell"><span class="rk dim">123</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">132</span></td>
+      <td class="namecell"><strong>Eric McAlister</strong><span class="pos pos-WR">WR</span><div class="college">TCU</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="r mason thomas">
+      <td class="rkcell"><span class="rk dim">124</span></td>
+      <td class="rkcell"><span class="rk cool">44</span></td>
+      <td class="rkcell"><span class="rk cool">47</span></td>
+      <td class="namecell"><strong>R Mason Thomas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">OU</div></td>
+    </tr>
+<tr data-pos="TE" data-name="michael trigg">
+      <td class="rkcell"><span class="rk dim">125</span></td>
+      <td class="rkcell"><span class="rk dim">118</span></td>
+      <td class="rkcell"><span class="rk dim">106</span></td>
+      <td class="namecell"><strong>Michael Trigg</strong><span class="pos pos-TE">TE</span><div class="college">Baylor</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="tyreak sapp">
+      <td class="rkcell"><span class="rk dim">126</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">124</span></td>
+      <td class="namecell"><strong>Tyreak Sapp</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Florida</div></td>
+    </tr>
+<tr data-pos="LB" data-name="red murdock">
+      <td class="rkcell"><span class="rk dim">127</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Red Murdock</strong><span class="pos pos-LB">LB</span><div class="college">Buffalo</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="jake slaughter">
+      <td class="rkcell"><span class="rk dim">128</span></td>
+      <td class="rkcell"><span class="rk dim">127</span></td>
+      <td class="rkcell"><span class="rk cool">90</span></td>
+      <td class="namecell"><strong>Jake Slaughter</strong><span class="pos pos-IOL">IOL</span><div class="college">Florida</div></td>
+    </tr>
+<tr data-pos="WR" data-name="cj daniels">
+      <td class="rkcell"><span class="rk dim">129</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">118</span></td>
+      <td class="namecell"><strong>CJ Daniels</strong><span class="pos pos-WR">WR</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="WR" data-name="de’zhaun stribling">
+      <td class="rkcell"><span class="rk dim">130</span></td>
+      <td class="rkcell"><span class="rk cool">62</span></td>
+      <td class="rkcell"><span class="rk dim">112</span></td>
+      <td class="namecell"><strong>De’Zhaun Stribling</strong><span class="pos pos-WR">WR</span><div class="college">Ole Miss</div></td>
+    </tr>
+<tr data-pos="TE" data-name="john michael gyllenborg">
+      <td class="rkcell"><span class="rk dim">131</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>John Michael Gyllenborg</strong><span class="pos pos-TE">TE</span><div class="college">Wyoming</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="logan jones">
+      <td class="rkcell"><span class="rk dim">132</span></td>
+      <td class="rkcell"><span class="rk cool">75</span></td>
+      <td class="rkcell"><span class="rk cool">95</span></td>
+      <td class="namecell"><strong>Logan Jones</strong><span class="pos pos-IOL">IOL</span><div class="college">Iowa</div></td>
+    </tr>
+<tr data-pos="LB" data-name="keyshaun elliott">
+      <td class="rkcell"><span class="rk dim">133</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">103</span></td>
+      <td class="namecell"><strong>Keyshaun Elliott</strong><span class="pos pos-LB">LB</span><div class="college">Arizona State</div></td>
+    </tr>
+<tr data-pos="DT" data-name="dontay corleone">
+      <td class="rkcell"><span class="rk dim">134</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">107</span></td>
+      <td class="namecell"><strong>Dontay Corleone</strong><span class="pos pos-DT">DT</span><div class="college">Cincinnati</div></td>
+    </tr>
+<tr data-pos="RB" data-name="kaytron allen">
+      <td class="rkcell"><span class="rk dim">135</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Kaytron Allen</strong><span class="pos pos-RB">RB</span><div class="college">Penn State</div></td>
+    </tr>
+<tr data-pos="RB" data-name="terion stewart">
+      <td class="rkcell"><span class="rk dim">136</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Terion Stewart</strong><span class="pos pos-RB">RB</span><div class="college">Virginia Tech</div></td>
+    </tr>
+<tr data-pos="DT" data-name="rayshaun benny">
+      <td class="rkcell"><span class="rk dim">137</span></td>
+      <td class="rkcell"><span class="rk dim">132</span></td>
+      <td class="rkcell"><span class="rk cool">94</span></td>
+      <td class="namecell"><strong>Rayshaun Benny</strong><span class="pos pos-DT">DT</span><div class="college">Michigan</div></td>
+    </tr>
+<tr data-pos="CB" data-name="keionte scott">
+      <td class="rkcell"><span class="rk dim">138</span></td>
+      <td class="rkcell"><span class="rk cool">53</span></td>
+      <td class="rkcell"><span class="rk cool">55</span></td>
+      <td class="namecell"><strong>Keionte Scott</strong><span class="pos pos-CB">CB</span><div class="college">Miami</div></td>
+    </tr>
+<tr data-pos="OT" data-name="isaiah world">
+      <td class="rkcell"><span class="rk dim">139</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Isaiah World</strong><span class="pos pos-OT">OT</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="CB" data-name="daylen everette">
+      <td class="rkcell"><span class="rk dim">140</span></td>
+      <td class="rkcell"><span class="rk cool">69</span></td>
+      <td class="rkcell"><span class="rk cool">89</span></td>
+      <td class="namecell"><strong>Daylen Everette</strong><span class="pos pos-CB">CB</span><div class="college">Georgia</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="brian parker">
+      <td class="rkcell"><span class="rk dim">141</span></td>
+      <td class="rkcell"><span class="rk dim">144</span></td>
+      <td class="rkcell"><span class="rk dim">126</span></td>
+      <td class="namecell"><strong>Brian Parker</strong><span class="pos pos-IOL">IOL</span><div class="college">Duke</div></td>
+    </tr>
+<tr data-pos="QB" data-name="haynes king">
+      <td class="rkcell"><span class="rk dim">142</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Haynes King</strong><span class="pos pos-QB">QB</span><div class="college">Georgia Tech</div></td>
+    </tr>
+<tr data-pos="RB" data-name="kaelon black">
+      <td class="rkcell"><span class="rk dim">143</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Kaelon Black</strong><span class="pos pos-RB">RB</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="TE" data-name="sam roush">
+      <td class="rkcell"><span class="rk dim">144</span></td>
+      <td class="rkcell"><span class="rk cool">83</span></td>
+      <td class="rkcell"><span class="rk cool">87</span></td>
+      <td class="namecell"><strong>Sam Roush</strong><span class="pos pos-TE">TE</span><div class="college">Stanford</div></td>
+    </tr>
+<tr data-pos="CB" data-name="devin moore">
+      <td class="rkcell"><span class="rk dim">145</span></td>
+      <td class="rkcell"><span class="rk cool">100</span></td>
+      <td class="rkcell"><span class="rk cool">85</span></td>
+      <td class="namecell"><strong>Devin Moore</strong><span class="pos pos-CB">CB</span><div class="college">Florida</div></td>
+    </tr>
+<tr data-pos="WR" data-name="eric rivers">
+      <td class="rkcell"><span class="rk dim">146</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Eric Rivers</strong><span class="pos pos-WR">WR</span><div class="college">Georgia Tech</div></td>
+    </tr>
+<tr data-pos="RB" data-name="emmett johnson">
+      <td class="rkcell"><span class="rk dim">147</span></td>
+      <td class="rkcell"><span class="rk dim">123</span></td>
+      <td class="rkcell"><span class="rk dim">137</span></td>
+      <td class="namecell"><strong>Emmett Johnson</strong><span class="pos pos-RB">RB</span><div class="college">Nebraska</div></td>
+    </tr>
+<tr data-pos="S" data-name="kamari ramsey">
+      <td class="rkcell"><span class="rk dim">148</span></td>
+      <td class="rkcell"><span class="rk dim">131</span></td>
+      <td class="rkcell"><span class="rk cool">82</span></td>
+      <td class="namecell"><strong>Kamari Ramsey</strong><span class="pos pos-S">S</span><div class="college">USC</div></td>
+    </tr>
+<tr data-pos="WR" data-name="caleb douglas">
+      <td class="rkcell"><span class="rk dim">149</span></td>
+      <td class="rkcell"><span class="rk dim">126</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Caleb Douglas</strong><span class="pos pos-WR">WR</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="LB" data-name="bryce boettcher">
+      <td class="rkcell"><span class="rk dim">150</span></td>
+      <td class="rkcell"><span class="rk dim">102</span></td>
+      <td class="rkcell"><span class="rk dim">135</span></td>
+      <td class="namecell"><strong>Bryce Boettcher</strong><span class="pos pos-LB">LB</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="TE" data-name="joe royer">
+      <td class="rkcell"><span class="rk dim">151</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Joe Royer</strong><span class="pos pos-TE">TE</span><div class="college">Cincinnati</div></td>
+    </tr>
+<tr data-pos="QB" data-name="cade klubnik">
+      <td class="rkcell"><span class="rk dim">152</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Cade Klubnik</strong><span class="pos pos-QB">QB</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="RB" data-name="robert henry">
+      <td class="rkcell"><span class="rk dim">153</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Robert Henry</strong><span class="pos pos-RB">RB</span><div class="college">UTSA</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="jalen farmer">
+      <td class="rkcell"><span class="rk dim">154</span></td>
+      <td class="rkcell"><span class="rk cool">95</span></td>
+      <td class="rkcell"><span class="rk cool">88</span></td>
+      <td class="namecell"><strong>Jalen Farmer</strong><span class="pos pos-IOL">IOL</span><div class="college">Kentucky</div></td>
+    </tr>
+<tr data-pos="RB" data-name="rahsul faison">
+      <td class="rkcell"><span class="rk dim">155</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Rahsul Faison</strong><span class="pos pos-RB">RB</span><div class="college">South Carolina</div></td>
+    </tr>
+<tr data-pos="RB" data-name="leveon moss">
+      <td class="rkcell"><span class="rk dim">156</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">150</span></td>
+      <td class="namecell"><strong>Leveon Moss</strong><span class="pos pos-RB">RB</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="WR" data-name="skyler bell">
+      <td class="rkcell"><span class="rk dim">157</span></td>
+      <td class="rkcell"><span class="rk dim">129</span></td>
+      <td class="rkcell"><span class="rk cool">60</span></td>
+      <td class="namecell"><strong>Skyler Bell</strong><span class="pos pos-WR">WR</span><div class="college">UCONN</div></td>
+    </tr>
+<tr data-pos="WR" data-name="antonio williams">
+      <td class="rkcell"><span class="rk dim">158</span></td>
+      <td class="rkcell"><span class="rk cool">57</span></td>
+      <td class="rkcell"><span class="rk cool">69</span></td>
+      <td class="namecell"><strong>Antonio Williams</strong><span class="pos pos-WR">WR</span><div class="college">Clemson</div></td>
+    </tr>
+<tr data-pos="WR" data-name="ja’kobi lane">
+      <td class="rkcell"><span class="rk dim">159</span></td>
+      <td class="rkcell"><span class="rk dim">146</span></td>
+      <td class="rkcell"><span class="rk dim">136</span></td>
+      <td class="namecell"><strong>Ja’Kobi Lane</strong><span class="pos pos-WR">WR</span><div class="college">USC</div></td>
+    </tr>
+<tr data-pos="RB" data-name="adam randall">
+      <td class="rkcell"><span class="rk dim">160</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Adam Randall</strong><span class="pos pos-RB">RB</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="TE" data-name="dallen bentley">
+      <td class="rkcell"><span class="rk dim">161</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">142</span></td>
+      <td class="namecell"><strong>Dallen Bentley</strong><span class="pos pos-TE">TE</span><div class="college">Utah</div></td>
+    </tr>
+<tr data-pos="TE" data-name="carsen ryan">
+      <td class="rkcell"><span class="rk dim">162</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Carsen Ryan</strong><span class="pos pos-TE">TE</span><div class="college">BYU</div></td>
+    </tr>
+<tr data-pos="DT" data-name="lt overton">
+      <td class="rkcell"><span class="rk dim">163</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk cool">91</span></td>
+      <td class="namecell"><strong>LT Overton</strong><span class="pos pos-DT">DT</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="S" data-name="will lee">
+      <td class="rkcell"><span class="rk dim">164</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">114</span></td>
+      <td class="namecell"><strong>Will Lee</strong><span class="pos pos-S">S</span><div class="college">Texas A&M</div></td>
+    </tr>
+<tr data-pos="WR" data-name="dane key">
+      <td class="rkcell"><span class="rk dim">165</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Dane Key</strong><span class="pos pos-WR">WR</span><div class="college">Nebraska</div></td>
+    </tr>
+<tr data-pos="WR" data-name="tyren montgomery">
+      <td class="rkcell"><span class="rk dim">166</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Tyren Montgomery</strong><span class="pos pos-WR">WR</span><div class="college">John Carroll</div></td>
+    </tr>
+<tr data-pos="DT" data-name="gracen halton">
+      <td class="rkcell"><span class="rk dim">167</span></td>
+      <td class="rkcell"><span class="rk dim">105</span></td>
+      <td class="rkcell"><span class="rk cool">70</span></td>
+      <td class="namecell"><strong>Gracen Halton</strong><span class="pos pos-DT">DT</span><div class="college">Oklahoma</div></td>
+    </tr>
+<tr data-pos="DT" data-name="domonique orange">
+      <td class="rkcell"><span class="rk dim">168</span></td>
+      <td class="rkcell"><span class="rk dim">109</span></td>
+      <td class="rkcell"><span class="rk cool">72</span></td>
+      <td class="namecell"><strong>Domonique Orange</strong><span class="pos pos-DT">DT</span><div class="college">Iowa State</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="connor lew">
+      <td class="rkcell"><span class="rk dim">169</span></td>
+      <td class="rkcell"><span class="rk dim">120</span></td>
+      <td class="rkcell"><span class="rk cool">80</span></td>
+      <td class="namecell"><strong>Connor Lew</strong><span class="pos pos-IOL">IOL</span><div class="college">Auburn</div></td>
+    </tr>
+<tr data-pos="TE" data-name="jaren kanak">
+      <td class="rkcell"><span class="rk dim">170</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jaren Kanak</strong><span class="pos pos-TE">TE</span><div class="college">Oklahoma</div></td>
+    </tr>
+<tr data-pos="RB" data-name="desmond reid">
+      <td class="rkcell"><span class="rk dim">171</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Desmond Reid</strong><span class="pos pos-RB">RB</span><div class="college">Pittsburgh</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="jeremiah wright">
+      <td class="rkcell"><span class="rk dim">172</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jeremiah Wright</strong><span class="pos pos-IOL">IOL</span><div class="college">Auburn</div></td>
+    </tr>
+<tr data-pos="CB" data-name="tacario davis">
+      <td class="rkcell"><span class="rk dim">173</span></td>
+      <td class="rkcell"><span class="rk cool">73</span></td>
+      <td class="rkcell"><span class="rk dim">123</span></td>
+      <td class="namecell"><strong>Tacario Davis</strong><span class="pos pos-CB">CB</span><div class="college">Washington</div></td>
+    </tr>
+<tr data-pos="QB" data-name="diego pavia">
+      <td class="rkcell"><span class="rk dim">174</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Diego Pavia</strong><span class="pos pos-QB">QB</span><div class="college">Vanderbilt</div></td>
+    </tr>
+<tr data-pos="TE" data-name="dae’quan wright">
+      <td class="rkcell"><span class="rk dim">175</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Dae’Quan Wright</strong><span class="pos pos-TE">TE</span><div class="college">Ole Miss</div></td>
+    </tr>
+<tr data-pos="OT" data-name="jude bowry">
+      <td class="rkcell"><span class="rk dim">176</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">134</span></td>
+      <td class="namecell"><strong>Jude Bowry</strong><span class="pos pos-OT">OT</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="WR" data-name="deion burks">
+      <td class="rkcell"><span class="rk dim">177</span></td>
+      <td class="rkcell"><span class="rk cool">70</span></td>
+      <td class="rkcell"><span class="rk cool">78</span></td>
+      <td class="namecell"><strong>Deion Burks</strong><span class="pos pos-WR">WR</span><div class="college">Oklahoma</div></td>
+    </tr>
+<tr data-pos="DT" data-name="jordan vandenberg">
+      <td class="rkcell"><span class="rk dim">178</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jordan Vandenberg</strong><span class="pos pos-DT">DT</span><div class="college">Georgia Tech</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="mason reiger">
+      <td class="rkcell"><span class="rk dim">179</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">140</span></td>
+      <td class="namecell"><strong>Mason Reiger</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Wisconsin</div></td>
+    </tr>
+<tr data-pos="RB" data-name="jadyn ott">
+      <td class="rkcell"><span class="rk dim">180</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jadyn Ott</strong><span class="pos pos-RB">RB</span><div class="college">Oklahoma</div></td>
+    </tr>
+<tr data-pos="DT" data-name="tim keenan">
+      <td class="rkcell"><span class="rk dim">181</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">144</span></td>
+      <td class="namecell"><strong>Tim Keenan</strong><span class="pos pos-DT">DT</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="TE" data-name="josh cuevas">
+      <td class="rkcell"><span class="rk dim">182</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Josh Cuevas</strong><span class="pos pos-TE">TE</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="WR" data-name="hank beatty">
+      <td class="rkcell"><span class="rk dim">183</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Hank Beatty</strong><span class="pos pos-WR">WR</span><div class="college">Illinois</div></td>
+    </tr>
+<tr data-pos="WR" data-name="reggie virgil">
+      <td class="rkcell"><span class="rk dim">184</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">130</span></td>
+      <td class="namecell"><strong>Reggie Virgil</strong><span class="pos pos-WR">WR</span><div class="college">Texas Tech</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="anthony lucas">
+      <td class="rkcell"><span class="rk dim">185</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">109</span></td>
+      <td class="namecell"><strong>Anthony Lucas</strong><span class="pos pos-EDGE">EDGE</span><div class="college">USC</div></td>
+    </tr>
+<tr data-pos="RB" data-name="seth mcgowan">
+      <td class="rkcell"><span class="rk dim">186</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">127</span></td>
+      <td class="namecell"><strong>Seth McGowan</strong><span class="pos pos-RB">RB</span><div class="college">Kentucky</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="kobe baynes">
+      <td class="rkcell"><span class="rk dim">187</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Kobe Baynes</strong><span class="pos pos-IOL">IOL</span><div class="college">Kansas</div></td>
+    </tr>
+<tr data-pos="TE" data-name="tanner koziol">
+      <td class="rkcell"><span class="rk dim">188</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Tanner Koziol</strong><span class="pos pos-TE">TE</span><div class="college">Houston</div></td>
+    </tr>
+<tr data-pos="TE" data-name="rj maryland">
+      <td class="rkcell"><span class="rk dim">189</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>RJ Maryland</strong><span class="pos pos-TE">TE</span><div class="college">SMU</div></td>
+    </tr>
+<tr data-pos="QB" data-name="sawyer robertson">
+      <td class="rkcell"><span class="rk dim">190</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Sawyer Robertson</strong><span class="pos pos-QB">QB</span><div class="college">Baylor</div></td>
+    </tr>
+<tr data-pos="RB" data-name="anthony hankerson">
+      <td class="rkcell"><span class="rk dim">191</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Anthony Hankerson</strong><span class="pos pos-RB">RB</span><div class="college"></div></td>
+    </tr>
+<tr data-pos="TE" data-name="cody hardy">
+      <td class="rkcell"><span class="rk dim">192</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Cody Hardy</strong><span class="pos pos-TE">TE</span><div class="college">NC State</div></td>
+    </tr>
+<tr data-pos="WR" data-name="kevin coleman">
+      <td class="rkcell"><span class="rk dim">193</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Kevin Coleman</strong><span class="pos pos-WR">WR</span><div class="college">Missouri</div></td>
+    </tr>
+<tr data-pos="RB" data-name="logan diggs">
+      <td class="rkcell"><span class="rk dim">194</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Logan Diggs</strong><span class="pos pos-RB">RB</span><div class="college">Ole Miss</div></td>
+    </tr>
+<tr data-pos="RB" data-name="j’mari taylor">
+      <td class="rkcell"><span class="rk dim">195</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>J’Mari Taylor</strong><span class="pos pos-RB">RB</span><div class="college">Virginia</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="mikael kamara">
+      <td class="rkcell"><span class="rk dim">196</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="rk dim">120</span></td>
+      <td class="namecell"><strong>Mikael Kamara</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="RB" data-name="jam miller">
+      <td class="rkcell"><span class="rk dim">197</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jam Miller</strong><span class="pos pos-RB">RB</span><div class="college">Alabama</div></td>
+    </tr>
+<tr data-pos="WR" data-name="josh cameron">
+      <td class="rkcell"><span class="rk dim">198</span></td>
+      <td class="rkcell"><span class="rk dim">124</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Josh Cameron</strong><span class="pos pos-WR">WR</span><div class="college">Baylor</div></td>
+    </tr>
+<tr data-pos="IOL" data-name="dj campbell">
+      <td class="rkcell"><span class="rk dim">199</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>DJ Campbell</strong><span class="pos pos-IOL">IOL</span><div class="college">Texas</div></td>
+    </tr>
+<tr data-pos="EDGE" data-name="vincent anthony">
+      <td class="rkcell"><span class="rk dim">200</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Vincent Anthony</strong><span class="pos pos-EDGE">EDGE</span><div class="college">Duke</div></td>
+    </tr>
+<tr data-pos="S" data-name="jalen stroman">
+      <td class="rkcell"><span class="rk dim">201</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Jalen Stroman</strong><span class="pos pos-S">S</span><div class="college">Notre Dame</div></td>
+    </tr>
+<tr data-pos="RB" data-name="noah whittington">
+      <td class="rkcell"><span class="rk dim">202</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Noah Whittington</strong><span class="pos pos-RB">RB</span><div class="college">Oregon</div></td>
+    </tr>
+<tr data-pos="RB" data-name="roman hemby">
+      <td class="rkcell"><span class="rk dim">203</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Roman Hemby</strong><span class="pos pos-RB">RB</span><div class="college">Indiana</div></td>
+    </tr>
+<tr data-pos="RB" data-name="barika kpeenu">
+      <td class="rkcell"><span class="rk dim">204</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="rkcell"><span class="nr">N/R</span></td>
+      <td class="namecell"><strong>Barika Kpeenu</strong><span class="pos pos-RB">RB</span><div class="college">North Dakota State</div></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  Source boards: Jon Anderson · DFW Pro Sports · Daniel Jeremiah · NFL Network · PFF<br>
+  <a href="index.html">← Back to the Top 200 Big Board</a>
+</footer>
+
+<script>
+const search = document.getElementById('search');
+const chips = document.querySelectorAll('#chips .chip');
+const rows = document.querySelectorAll('#full-table-el tbody tr');
+let activePos = 'ALL';
+let term = '';
+
+function apply() {
+  rows.forEach(r => {
+    const pos = r.dataset.pos;
+    const name = r.dataset.name;
+    const posOk = activePos === 'ALL' || pos === activePos;
+    const nameOk = !term || name.includes(term);
+    r.style.display = (posOk && nameOk) ? '' : 'none';
+  });
+}
+chips.forEach(c => c.addEventListener('click', () => {
+  chips.forEach(x => x.classList.remove('active'));
+  c.classList.add('active');
+  activePos = c.dataset.pos;
+  apply();
+}));
+search.addEventListener('input', e => {
+  term = e.target.value.trim().toLowerCase();
+  apply();
+});
+</script>
+
+</body>
+</html>
